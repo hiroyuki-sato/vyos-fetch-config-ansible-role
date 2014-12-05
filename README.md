@@ -23,9 +23,6 @@ Create inventory file. ex. inventory.ini
      # VyOS IP or FQDN
     10.10.10.10
 
-
-    ansible-playbook -i inventory.ini config.yml --ask-pass
-
 ## Execution example
 
 
