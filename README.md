@@ -25,34 +25,38 @@ Create inventory file. ex. inventory.ini
 
 ## Directory example
 
-    ./configs/10.10.10.10 # <-- This is saved configuration file.
+    ./configs/10.10.10.10.config   # output of show config
+    ./configs/10.10.10.10.gen-sets # output of show configuration commands
     ./inventory.ini
-    ./roles/vyos/README.md
-    ./roles/vyos/tasks/main.yml
+    ./vyos/README.md
+    ./vyos/tasks/main.yml
     ./vyos_config.yml
 
 ## Execution example
 
 
-    % ansible-playbook -i inventory.ini vyos_config.yml --ask-pass
-    SSH password: 
+    PLAY [all] ********************************************************************
     
-    PLAY [all] ******************************************************************** 
-    
-    GATHERING FACTS *************************************************************** 
+    GATHERING FACTS ***************************************************************
     ok: [10.10.10.10]
     
-    TASK: [vyos | generate current config] **************************************** 
+    TASK: [vyos | generate current config set] ************************************
     changed: [10.10.10.10]
     
-    TASK: [vyos | copy file] ****************************************************** 
+    TASK: [vyos | generate current config.] ***************************************
     changed: [10.10.10.10]
     
-    TASK: [vyos | delete conf file] *********************************************** 
+    TASK: [vyos | copy file gen-sets] *********************************************
+    ok: [10.10.10.10]
+    
+    TASK: [vyos | copy file] ******************************************************
+    ok: [10.10.10.10]
+    
+    TASK: [vyos | delete conf files] **********************************************
     changed: [10.10.10.10]
     
-    PLAY RECAP ******************************************************************** 
-    10.10.10.10             : ok=4    changed=3    unreachable=0    failed=0   
+    PLAY RECAP ********************************************************************
+    10.10.10.10             : ok=6    changed=3    unreachable=0    failed=0   
 
 
 You will find configuraiton file in configs directory. 
