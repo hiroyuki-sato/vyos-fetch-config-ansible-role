@@ -1,0 +1,9 @@
+- name: generate current config
+  shell: /opt/vyatta/sbin/vyatta-config-gen-sets.pl > /tmp/output
+
+- name: copy file
+  fetch: src=/tmp/output dest=configs/{{ inventory_hostname }} flat=yes
+
+- name: delete conf file
+  command: /bin/rm -f /tmp/output
+
