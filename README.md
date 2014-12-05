@@ -20,8 +20,16 @@ Here's an example how to use this role. create vyos_config.yml
 
 Create inventory file. ex. inventory.ini
 
-     # VyOS IP or FQDN
+    # VyOS IP or FQDN
     10.10.10.10
+
+## Directory example
+
+    ./configs/10.10.10.10 # <-- This is saved configuration file.
+    ./inventory.ini
+    ./roles/vyos/README.md
+    ./roles/vyos/tasks/main.yml
+    ./vyos_config.yml
 
 ## Execution example
 
