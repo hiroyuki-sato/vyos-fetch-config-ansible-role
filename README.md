@@ -1,6 +1,6 @@
-## Ansible role for VyOS fetch config.
+## Ansible role for VyOS.
 
-This is an ansible role to collect configuration from VyOSs.
+This is an ansible role to collect configuration from VyOS hosts.
 
 ## Installation step
 
