@@ -14,5 +14,6 @@
          flat=yes
 
 - name: delete conf files
-  command: /bin/rm -f /tmp/gen-sets /tmp/config
+  file: path=/tmp/gen-sets
+        state=absent
 
