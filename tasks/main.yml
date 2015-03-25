@@ -1,14 +1,16 @@
+- name: copy config.boot
+  fetch: src=/config/config.boot
+         dest=configs/{{ inventory_hostname }}.config
+         flat=yes
+  register: copy_vyos_config_result
+
 - name: generate current config set
   shell: /opt/vyatta/sbin/vyatta-config-gen-sets.pl > /tmp/gen-sets
+  when: copy_vyos_config_result.changed==true
 
 - name: copy file gen-sets
   fetch: src=/tmp/gen-sets
          dest=configs/{{ inventory_hostname }}.gen-sets
-         flat=yes
-
-- name: copy config.boot
-  fetch: src=/config/config.boot
-         dest=configs/{{ inventory_hostname }}.config
          flat=yes
 
 - name: delete conf files
